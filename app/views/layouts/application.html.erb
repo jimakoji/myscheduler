@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>みんなのスケジューラー<%= controller.action_name %></title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<p style="color: green" class="notice"><%= notice %></p>
+<p style="color: red" class="alert"><%= alert %></p>
+
+<%= yield %>
+
+<hr />
+
+<div style = "text-align: left;">
+	<%= link_to_unless_current('カレンダー', month_schedules_path) %> |
+	<%= link_to_unless_current('ユーザー管理', account_list_group_path) %> |
+	<% if user_signed_in? %>
+		<%= link_to "ログアウト", destroy_user_session_path %>
+	<% else %>
+		<%= link_to "ログイン", new_user_session_path %> |
+		<%= link_to 'ユーザー登録', [ :new, :user_registration ]  %>
+	<% end %>
+	<p><%#= link_to 'パスワード再発行', [ :new, :user_password ]  %></p>
+	<p><%#= link_to '登録確認メール再送信', [ :new, :user_confirmation ]  %></p>
+</div>
+
+<div style = "text-align: right;">
+	Powered by <a href="http://www.ruby-lang.org/">Ruby</a>
+	and
+	<a href="http://www.rubyonrails.org/">Ruby on rails</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<h1>グループ一覧</h1>
+<hr />
+<table>
+	<tr>
+		<th>グループ名</th>
+	</tr>
+
+	<% for group in @groups %>
+		<tr>
+			<td><%= group.name %></td>
+			<td><%= link_to('メンバー一覧', :action => 'list_member', :id => group) %></td>
+			<% if user_signed_in? %>
+			<td><%= link_to('編集', :action => 'edit_group', :id => group) %></td>
+			<td><%= link_to('削除', {:action => 'destroy_group', :id => group}, :confirm => '削除しますか？', :post => true ) %></td>
+			<% end %>
+		</tr>
+	<% end %>
+	</table>
+
+<%= paginate @groups %>
+
+<hr />
+
+<% if user_signed_in? %>
+<%= link_to('新規グループ追加', :action => 'new_group') %>
+<% end %>

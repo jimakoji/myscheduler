@@ -1,0 +1,34 @@
+﻿<h1>スケジュール一覧</h1>
+
+<table >
+  <tr>
+    <th>Datetime</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th></th>
+		<% if user_signed_in? %>
+    <th></th>
+    <th></th>
+		<% end %>
+  </tr>
+
+<% @schedules.each do |schedule| %>
+  <tr>
+    <td><%= schedule.datetime.strftime("%Y年 %m月 %d日 %p %I時 %M分 ") %></td>
+    <td><%= schedule.title %></td>
+    <td><%= linebreaksbr(schedule.content).html_safe %></td>
+    <td><%= link_to '詳細', schedule %></td>
+		<% if user_signed_in? %>
+    <td><%= link_to '編集', edit_schedule_path(schedule) %></td>
+    <td><%= link_to '削除', schedule, :confirm => 'Are you sure?', method: :delete %></td>
+		<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if user_signed_in? %>
+<%= link_to '新規スケジュール追加', new_schedule_path %>
+<% end %>
+<%= paginate @schedules %>

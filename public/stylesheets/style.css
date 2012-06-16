@@ -1,0 +1,176 @@
+/*
+  A blue based theme, inspired by Blinksale and their ColorBurn widget. http://firewheeldesign.com
+  
+  AUTHOR: Geoffrey Grosenbach http://nubyonrails.com
+  
+  Colors: 
+    Light Blue: bbccff 
+    White: eeddee
+    Turq: 003355
+    Cream: ffffdd
+*/
+div#pagebody{
+	width:800px; margin:0 auto;	/*内容全体をセンタリング*/
+}
+
+.calendar {
+  margin: auto;
+}
+
+div#this_and_prev {
+	width:480px; margin:1px 1px 1px 2px;	
+	float:left;				
+}
+
+div#prev_month {
+	width:130px;			/*幅の指定*/
+	margin:1px 1px 1px 1px;	/*位置調整（IE6のバグに注意）*/
+	display:inline;			/*IE6のマージン算出のバグ対策*/
+	float:left;			/*サブメニューのカラムを左寄せにする*/
+}
+
+div#this_month {
+	width:156px;			/*幅の指定*/
+	margin:1px 130px 1px 1px;	/*位置調整（IE6のバグに注意）*/
+	display:inline;			/*IE6のマージン算出のバグ対策*/
+	float:right;			/*サブメニューのカラムを左寄せにする*/
+}
+
+div#this_month table{
+	width: 410px;
+	height: 340px;
+/*	table-layout: fixed;*/  
+}
+
+div#next_month {
+	width:140px;			/*幅の指定*/
+	margin:1px 1px 1px 1px;	/*位置調整（IE6のバグに注意）*/
+	display:inline;			/*IE6のマージン算出のバグ対策*/
+	float:right;			/*サブメニューのカラムを左寄せにする*/
+}
+
+div#footer {
+	height:42px; text-align:center;
+	clear:both;					/*回り込みを解除する*/
+}
+
+.monthName{
+	height: 30px;
+	font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.monthName th {
+
+
+  padding-top: 1em;
+  padding-bottom: 0.7em;
+	padding-left: 0.7em;
+	padding-right: 0.7em;
+}
+
+.dayName th {
+  font-size: 0.9em;
+  padding-top: 0.6em;
+  padding-bottom: 0.3em;
+  background-color: #303030;
+  color: white;
+}
+
+div#prev_month .dayName th {
+  font-size: 0.6em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+div#next_month .dayName th {
+  font-size: 0.6em;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.day, .specialDay {
+  text-align: center;
+  padding: 14px 14px;
+  border-bottom: 1px dotted #bbbbbb;
+  background-color: #edf2fc;
+}
+
+div#prev_month .day, .specialDay {
+  text-align: center;
+	padding: 1px 1px;
+}
+
+div#prev_month a {
+  font-size: 12px;
+}
+
+div#next_month .day, .specialDay {
+  text-align: center;
+	padding: 1px 1px;
+}
+
+div#next_month a {
+  font-size: 12px;
+}
+
+.specialDay a, .specialDay a:visited, .day a:visited {
+  color: #000;
+  text-decoration: none;
+  padding: 2px;
+}
+.specialDay a:hover, .day a:hover {
+  color: #fff;
+  background-color: gray;
+}
+
+/*　土曜日　*/
+.saturDay {
+  background-color: #bbccff;
+}
+
+.saturDay a{
+	color: blue;
+}
+
+.saturDay a:hover { 
+	color: #fff; background-color:gray;
+	text-decoration: none; 
+}
+
+.saturDay a:visited { 
+	color: blue;
+}
+
+/*　日曜日　*/
+.sunDay {
+  background-color: #ffdddd;
+}
+
+.sunDay a{
+	color: red;
+}
+
+.sunDay a:hover { 
+	color: #fff; background-color:gray; 
+	text-decoration: none;
+}
+
+.sunDay a:visited { 
+	color: red;
+}
+
+/*　他の月　*/
+.otherMonth {
+	font-size: 11px;
+  color: #c0c0c0;
+  background-color: #eee;
+}
+/*　当日　*/
+.today{
+	background-color: #FFEFD5;
+}
+
+
+

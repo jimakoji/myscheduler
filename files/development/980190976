@@ -1,0 +1,11 @@
+#! ruby -Ks
+
+require 'erb'
+
+# ヘッダー出力
+puts "Content-Type: text/html"
+puts
+puts "[ERB: " + ENV['PATH_TRANSLATED'] + "]<hr>" # パス出力
+
+# EEBの実行
+ERB.new(IO.read(ENV['PATH_TRANSLATED'])).run

@@ -1,0 +1,33 @@
+﻿<%= form_for(@schedule, :html => {:multipart => true}) do |f| %>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% @schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :datetime %><br />
+    <%= f.datetime_select :datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => 30 %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, :cols => 40, :rows => 10 %>
+  </div>
+	<div class="field">
+    <%= f.label :file_name %><br />
+				<%= link_to(@schedule.file_name, view_file_schedules_path(:id => @schedule)) if @schedule.file_name %>
+    <%= f.file_field :file_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit('作成・更新') %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+﻿<h1>新規グループ</h1>
+<hr />
+<form action="/account/create_group" method="post">
+	
+ 
+<p>
+	<label for="group_name">グループ名</label><br />
+	<input id="group_name" name="group[name]" size="30" type="text" />
+</p>
+ 
+	<input name="commit" type="submit" value="作成" />
+</form>
+ 
+<a href="/account/list_group">戻る</a>

@@ -1,0 +1,27 @@
+﻿<h1>グループの編集</h1>
+
+<hr />
+
+<%= form_for :group , :url => { :action => 'update_group', :id => @group } do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "") %> 個の入力エラーがあります。</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to('戻る', :action => 'list_group')%>

@@ -1,0 +1,84 @@
+<div id = pagebody>
+<h1>月間スケジュール　<%= @this.strftime('%Y年%m月')%></h1>
+
+<% if current_user %>
+<p><%= "#{current_user[:email]}さんがログインしています。"%></p>
+<% else %>
+<p><%= "ログイン、またはユーザー登録してください。"%></p>
+<% end %>
+
+<hr />
+<div>
+	<% if user_signed_in? %>
+	<%= link_to('スケジュールを新規追加', new_schedule_path) %>
+	<% end %>
+	<%= link_to('スケジュール一覧', :action => 'index')%>
+</div>
+
+<div>
+	<%= link_to('前へ', :action => 'month', :year => @prev.year, :month => @prev.month )%>
+	<%= link_to('今月', :action => 'month')%>
+	<%= link_to('次へ', :action => 'month', :year => @next.year, :month => @next.month )%>
+</div>
+<br />
+
+<div id = this_and_prev>
+<div id = prev_month>
+	<%= calendar(:year => @year, :month => @prev.month) do |date|
+		cell_text = link_to(date.mday.to_s, :action => 'new', :date => date)
+		cell_attrs = {:class => 'day'}
+		@schedules[date].each do |schedule|
+			cell_attrs[:class] = 'specialDay'
+			cell_text << "<br />\n".html_safe
+			cell_text << link_to(h(schedule.title), :action => 'show', :id => schedule)
+		end
+
+		[cell_text, cell_attrs]
+	end.html_safe
+	%>
+</div>
+
+<div id = this_month>
+	<%= calendar(:year => @year, :month => @month) do |date|
+		cell_text = link_to(date.mday.to_s, :action => 'new', :date => date)
+		cell_attrs = {:class => 'day'}
+		@schedules[date].each do |schedule|
+			cell_attrs[:class] = 'specialDay'
+			cell_text << "<br />\n".html_safe
+			cell_text << link_to(h(schedule.title), :action => 'show', :id => schedule)
+		end
+
+		[cell_text, cell_attrs]
+	end.html_safe
+	%>
+</div>
+</div>
+
+<div id = next_month>
+	<%= calendar(:year => @year, :month => @next.month) do |date|
+		cell_text = link_to(date.mday.to_s, :action => 'new', :date => date)
+		cell_attrs = {:class => 'day'}
+		@schedules[date].each do |schedule|
+			cell_attrs[:class] = 'specialDay'
+			cell_text << "<br />\n".html_safe
+			cell_text << link_to(h(schedule.title), :action => 'show', :id => schedule)
+		end
+
+		[cell_text, cell_attrs]
+	end.html_safe
+	%>
+</div>
+
+<div id = footer>
+<%= form_for(:schedule, :url => { :action => "search" }, :remote => true ) do |f| %>
+	<p>
+		<%= f.text_field (:title) %>
+		<%= f.submit ("検索") %>
+	</p>
+<% end %>
+</div>
+
+<div id = "results">
+</div>
+
+</dv>

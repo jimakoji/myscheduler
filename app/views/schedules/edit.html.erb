@@ -1,0 +1,7 @@
+﻿<h1>スケジュールの編集</h1>
+
+<%= render 'form' %>
+
+<%= link_to '見る', @schedule %> |
+<%= link_to 'カレンダーへ戻る',	:action => 'month', :year => @schedule.datetime.year, :month => @schedule.datetime.month %>
+<%= link_to('スケジュール一覧', :action => 'index' )%>

@@ -1,0 +1,3 @@
+$("#results").html('<dl><% for schedule in @results -%><dt><%= format_datetime(schedule.datetime) %></dt><dd><%= link_to(schedule.title, :action => 'show', :id => schedule) %></dd><% end %></dl>')
+
+

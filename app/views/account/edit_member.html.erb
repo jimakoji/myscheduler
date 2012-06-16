@@ -1,0 +1,34 @@
+<h1>ユーザー編集</h1>
+
+<hr />
+
+<%= form_for :member , :url => { :action => 'update_member', :id => @member } do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "") %> 個の入力エラーがあります。</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div>
+		<label for="member_group_id">所属グループ</label><br />
+		<%= collection_select(:member, :group_id, @groups, :id, :name) %>
+	</div>
+
+	<br />
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to('戻る', :action => 'list_group')%>
