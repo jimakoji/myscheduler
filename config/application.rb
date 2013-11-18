@@ -40,7 +40,7 @@ module Scheduler
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-		Date::DAYNAMES = ['日', '月', '火', '水', '木', '金', '土']
-		Date::MONTHNAMES = [nil,'1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+#		Date::DAYNAMES = ['日', '月', '火', '水', '木', '金', '土']
+#		Date::MONTHNAMES = [nil,'1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
   end
 end
