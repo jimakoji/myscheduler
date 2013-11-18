@@ -8,8 +8,8 @@ gem 'rails', '3.0.9'
 #gem 'sqlite3'
 gem 'kaminari'
 gem 'devise'
-gem 'ruby-mysql'
-#gem 'mysql2', '0.3.11'
+#gem 'ruby-mysql'
+gem 'mysql2', '0.2.18'
 
 # Use unicorn as the web server
 # gem 'unicorn'
