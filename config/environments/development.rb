@@ -22,6 +22,19 @@ Scheduler::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+	config.action_mailer.default_url_options = { :host => 'mogok-sample-myScheduler.ruby.iijgio.com' }
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.raise_delivery_errors = false
+config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address => 'smtp.gmail.com',
+  :port => '587',
+  :domain => 'smtp.gmail.com',
+  :authentication => 'plain',
+  :user_name => 'jima0537@gmail.com',
+  :password => 'koji0537'
+}
+
 end
 
