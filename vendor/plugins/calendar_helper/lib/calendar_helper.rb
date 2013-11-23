@@ -1,3 +1,5 @@
+# coding: utf-8 
+
 require 'date'
 
 # CalendarHelper allows you to draw a databound calendar with fine-grained CSS formatting
@@ -64,6 +66,10 @@ module CalendarHelper
   #
   # For consistency with the themes provided in the calendar_styles generator, use "specialDay" as the CSS class for marked days.
   # 
+
+    JAPANESE_NORMAL = [nil, "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+    JAPANESE_WEEK   = ["日", "月", "火", "水", "木", "金", "土"]
+
   def calendar(options = {}, &block)
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
@@ -91,7 +97,8 @@ module CalendarHelper
     first_weekday = first_day_of_week(options[:first_day_of_week])
     last_weekday = last_day_of_week(options[:first_day_of_week])
     
-    day_names = Date::DAYNAMES.dup
+#    day_names = Date::DAYNAMES.dup
+    day_names = JAPANESE_WEEK
     first_weekday.times do
       day_names.push(day_names.shift)
     end
