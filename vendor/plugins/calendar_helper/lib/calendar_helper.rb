@@ -112,7 +112,7 @@ module CalendarHelper
     else
       colspan=7
     end
-    cal << %(<th colspan="#{colspan}" class="#{options[:month_name_class]}">#{Date::MONTHNAMES[options[:month]]}</th>)
+    cal << %(<th colspan="#{colspan}" class="#{options[:month_name_class]}">#{JAPANESE_NORMAL[options[:month]]}</th>)
     cal << %(<th colspan="2">#{options[:next_month_text]}</th>) if options[:next_month_text]
     cal << %(</tr><tr class="#{options[:day_name_class]}">)
     day_names.each do |d|
@@ -129,7 +129,7 @@ module CalendarHelper
       cal << " sunDay" if sunday?(d)
       cal << " saturDay" if saturday?(d)
       if options[:accessible]
-        cal << %(">#{d.day}<span class="hidden"> #{Date::MONTHNAMES[d.month]}</span></td>)
+        cal << %(">#{d.day}<span class="hidden"> #{JAPANESE_NORMAL[d.month]}</span></td>)
       else
         cal << %(">#{d.day}</td>)
       end
@@ -152,7 +152,7 @@ module CalendarHelper
       cal << " sunDay" if sunday?(d)
       cal << " saturDay" if saturday?(d)
       if options[:accessible]
-        cal << %(">#{d.day}<span class='hidden'> #{Date::MONTHNAMES[d.mon]}</span></td>)
+        cal << %(">#{d.day}<span class='hidden'> #{JAPANESE_NORMAL[d.mon]}</span></td>)
       else
         cal << %(">#{d.day}</td>)        
       end
