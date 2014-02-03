@@ -9,7 +9,13 @@ gem 'rails', '3.0.9'
 gem 'kaminari'
 gem 'devise'
 #gem 'ruby-mysql'
-gem 'mysql2', '0.2.18'
+group :development, :test do
+  gem 'mysql2', '0.2.18'
+end
+
+group :production do
+  gem 'pg', '0.12.2'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
