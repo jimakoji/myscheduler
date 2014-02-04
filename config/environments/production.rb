@@ -46,5 +46,18 @@ Scheduler::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-	config.action_mailer.default_url_options = { :host => 'localhost' }
+	config.action_mailer.default_url_options = { :host => 'intense-garden-6492.herokuapp.com' }
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.raise_delivery_errors = false
+config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address => 'smtp.gmail.com',
+  :port => '587',
+  :domain => 'smtp.gmail.com',
+  :authentication => 'plain',
+  :user_name => 'jima0537@gmail.com',
+  :password => 'koji0537'
+}
+
 end
