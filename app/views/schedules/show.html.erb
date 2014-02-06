@@ -10,7 +10,6 @@
 	<p><%= linebreaksbr(@schedule.content).html_safe %></p>
 	<% if @schedule.attribute_present?('file_name') %>
 	<p>添付ファイル<pt>
-	
 		<%= link_to(@schedule.file_name, view_file_schedules_path(:id => @schedule)) if @schedule.file_name %>
 	</dd>
 	<% end %>

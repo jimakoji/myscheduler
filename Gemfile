@@ -9,6 +9,11 @@ gem 'rails', '3.0.9'
 gem 'kaminari'
 gem 'devise'
 #gem 'ruby-mysql'
+
+group :development do
+  gem 'annotate'
+end
+
 group :development, :test do
   gem 'mysql2', '0.2.18'
 end

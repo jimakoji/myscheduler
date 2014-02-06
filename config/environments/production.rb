@@ -48,6 +48,7 @@ Scheduler::Application.configure do
   config.active_support.deprecation = :notify
 	config.action_mailer.default_url_options = { :host => 'intense-garden-6492.herokuapp.com' }
 
+=begin
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.smtp_settings = {
@@ -59,5 +60,6 @@ config.action_mailer.smtp_settings = {
   :user_name => 'jima0537@gmail.com',
   :password => 'koji0537'
 }
+=end
 
 end
