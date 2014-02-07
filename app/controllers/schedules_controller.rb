@@ -2,7 +2,8 @@ class SchedulesController < ApplicationController
 
 	before_filter :authenticate_user!, :except=>[ :month ]
 
-	FILE_PATH = "#{Rails.root.to_s}/files/#{ENV['RAILS_ENV']}"
+#	FILE_PATH = "#{Rails.root.to_s}/files/#{ENV['RAILS_ENV']}"
+	FILE_PATH = "#{Rails.root.to_s}/public"
   # GET /schedules
   # GET /schedules.xml
 
